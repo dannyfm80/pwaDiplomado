@@ -1,0 +1,42 @@
+<h1 *ngIf="pais"> {{ pais.name }} </h1>
+<hr>
+
+<div class="row animated fadeIn fast" *ngIf="pais">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+        <h5>Bandera</h5>
+    
+        <img [src]="pais.flag" class="bandera" [alt]="pais.name">
+        <br>
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+        <br>
+        <a class="btn btn-danger btn-block" routerLink="/">
+          Regresar a la lista de paises
+        </a>
+      </div>
+      <br>
+        
+      </div>
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+
+    <h5>Datos</h5>
+
+    <ul class="list-group">
+      <li class="list-group-item">Poblacion: {{ pais.population | number }}</li>
+      <li class="list-group-item">Área: {{ pais.area | number }}</li>
+      <li class="list-group-item">Código Área: {{ pais.callingCodes }}</li>
+      <li class="list-group-item">TimeZone: {{ pais.timezones }}</li>
+    </ul>
+
+    <hr>
+    <h5>Fronteras</h5>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let bordes of pais.borders">
+          {{ bordes }}
+      </li>
+    </ul>
+
+  </div>
+
+  
+</div>
